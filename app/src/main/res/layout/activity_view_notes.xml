@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/note_colour"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/note_title_for_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Title"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/input_contents_for_view"
+                android:layout_width="match_parent"
+                android:layout_height="417dp"
+                android:layout_margin="10dp"
+                android:background="@color/content_colour"
+                android:hint="Contents"
+                android:lines="10"
+                android:padding="8dp"
+                android:scrollbars="vertical">
+            </TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/page_num_for_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Page #"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/prev_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/white"
+            android:text="Prev"
+            android:textColor="@color/black"
+            android:onClick="prevButtonOnClick"/>
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/white"
+            android:text="Next"
+            android:textColor="@color/black"
+            android:onClick="nextButtonOnClick"/>
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/white"
+            android:text="Edit"
+            android:textColor="@color/black"
+            android:onClick="editButtonOnClick"/>
+
+        <ImageButton
+            android:id="@+id/fav_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_star_border_24"
+            android:onClick="favoriteButtonOnClick"/>
+    </LinearLayout>
+
+</LinearLayout>

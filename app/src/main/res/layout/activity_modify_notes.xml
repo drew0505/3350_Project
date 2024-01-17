@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/note_colour">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/note_title_2"
+        android:hint="Title"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_margin="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_margin="8dp">
+
+        <EditText
+            android:id="@+id/input_contents_2"
+            android:layout_width="match_parent"
+            android:layout_height="417dp"
+            android:layout_margin="10dp"
+            android:background="@color/content_colour"
+            android:hint="Contents"
+            android:lines="10"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/page_num_for_modify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Page #"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/update_button"
+                android:text="UPDATE"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:onClick="updateButtonOnClick"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/insert_button"
+                android:text="Insert"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:onClick="insertButtonOnClick"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/delete_button"
+                android:text="DELETE"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="#FF0000"
+                android:onClick="deleteButtonOnClick"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

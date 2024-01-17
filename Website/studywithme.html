@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App Name</title>
+    <style>
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            padding: 2em 0;
+        }
+
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* light mode */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: white;
+                --text-color: black;
+            }
+
+            .intro {
+                background-color: white;
+            }
+
+            .team-discussion {
+                background-color: #f0f0f0;
+            }
+
+            .feature:nth-child(even) {
+                background-color: #f0f0f0;
+            }
+
+            .feature:nth-child(odd) {
+                background-color: white;
+            }
+
+            .velocity-chart {
+                background-color: #f0f0f0;
+            }
+
+            .review {
+                background-color: #f0f0f0;
+            }
+        }
+
+        /* dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: black;
+                --text-color: white;
+            }
+
+            .intro {
+                background-color: black;
+            }
+
+            .team-discussion {
+                background-color: #121212;
+            }
+
+            .feature:nth-child(even) {
+                background-color: #121212;
+            }
+
+            .feature:nth-child(odd) {
+                background-color: black;
+            }
+
+            .velocity-chart {
+                background-color: #121212;
+            }
+
+            .review {
+                background-color: #121212;
+            }
+        }
+
+        /* header section */
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1em;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(127, 23, 219, 0.98);
+            z-index: 1000;
+            padding: 1em 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            width: 50px;
+            height: 50px;
+            margin-left: 15px;
+        }
+
+        .learn-more {
+            background-color: rgba(127, 23, 219, 0.98);
+            text-align: center;
+            padding: 50px;
+            height: 200px;
+            white-space: wrap;
+            overflow-y: scroll;
+        }
+
+
+        /* vision statement section */
+        .intro {
+            padding: 100px;
+            text-align: left;
+            margin-bottom: 2.5em;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin-top: 5em;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .vision-video {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .download-button {
+            background-color: rgb(127, 23, 219);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 3em;
+        }
+
+        .download-button:hover {
+            background-color: rgb(0, 145, 255);
+            color: white;
+        }
+
+        .download-button:active {
+            opacity: 0.7;
+        }
+
+        /* team description section */
+        .team-description {
+            padding: 5em;
+            text-align: center;
+        }
+
+        .team-description h2 {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .team-description ul {
+            list-style: none;
+            padding: 4em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4em;
+        }
+
+        .team-description li {
+            width: 60%;
+            text-align: left;
+        }
+
+        .team-member-name {
+            font-weight: bold;
+        }
+
+        /* feature section */
+        .feature h2 {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .feature {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 8em;
+            gap: 3em;
+        }
+
+        .feature ul {
+            list-style: none;
+            padding: 3em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4em;
+        }
+
+        .feature-pictures {
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-pictures img {
+            width: 400px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .feature-description {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        /* Development Experience section */
+        .dev-exp {
+            padding: 5em;
+            text-align: center;
+        }
+
+        .dev-exp h2 {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .dev-exp ul {
+            list-style: none;
+            padding: 4em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4em;
+        }
+
+        .dev-exp li {
+            width: 60%;
+            text-align: left;
+        }
+
+        .issue {
+            font-weight: bold;
+        }
+
+        /* user review section */
+        .user-reviews {
+            padding: 8em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em;
+            position: relative;
+            margin-top: 3.5em;
+        }
+
+        .user-reviews-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .review {
+            padding: 1em;
+            border-radius: 5px;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        .review h3 {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .stars {
+            color: rgb(245, 202, 8);
+            font-size: 1.5em;
+            display: inline-block;
+            margin-bottom: 0.5em;
+        }
+
+        /* footer section */
+        .footer {
+            background-color: rgb(127, 23, 219);
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            gap: 1em;
+        }
+
+        .footer-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .copyright-team {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .team-members {
+            margin: 10;
+            padding: 0;
+            list-style-type: none;
+            margin-bottom: 1em;
+        }
+
+        .team-members li {
+            margin-bottom: 5px;
+        }
+
+        .demo {
+            float: right;
+            margin-top: 7em;
+            margin-left: 3em;
+            max-width: 50%;
+            max-height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<!-- header section -->
+<header class="header">
+    <img src="images/logo.png" alt="Your App Logo"> <!-- Add your logo source here -->
+    <h1>STUDY WITH ME</h1>
+</header>
+
+<section class="demo">
+    <video class="vision-video" autoplay muted loop>
+        <source src="videos/Overview-video.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<!-- vision statement section -->
+<section class="intro">
+    <h2>The New Studying Tool</h2>
+    <p>
+        Study with me is a product designed for students to study or learn together
+        in the same place at any time. It helps students stay organized while studying,
+        giving them easy access to their notes and other resources while also, keeping them
+        motivated.
+    </p>
+    <p>
+        This application gives students of all ages easy access to the notes they have created and saved.
+        It allows them to create the notes and edit them however they like while also have
+        giving them the option to have favourite notes and find any particuar note they want to use.
+        Study with me also recommends notes for the student to study, reminding them that they need
+        to go over the notes if they have not read them in a while.
+    </p>
+    <a href="#Learn More" class="download-button">Learn More</a>
+
+    <a href="https://code.cs.umanitoba.ca/comp3350-winter2023/a02-g7-study-with-me" class="download-button">Get on
+        GitLab</a>
+</section>
+
+<!-- feature section -->
+<section class="feature">
+    <h2>Features</h2>
+    <ul>
+        <div class="feature-description">
+            <h3>Create Notes</h3>
+            <p>This feature allows you to create new notes. By clicking the <b>ADD</b>
+                button at the bottom right corner of the screen, new notes are
+                created, once the <b>SAVE</b> button is clicked. If a new note is not
+                titled, the system automatically gives it the title 'Untitled'.
+            </p>
+        </div>
+        <div class="feature-pictures">
+            <img src="images/Create Notes(2).png" , alt="Create Notes Image">
+        </div>
+    </ul>
+</section>
+
+<section class="feature">
+    <div class="feature-pictures">
+        <img src="images/Edit Notes(2).png" , alt="Edit Notes Image">
+    </div>
+    <div class="feature-description">
+        <h3>Edit Notes</h3>
+        <p>The student is allowed to edit their notes to suit their preferences.
+            The <b>UPDATE</b> button applies and saves changes made to the note. The
+            <b>INSERT</b> button inserts pages either before or after a certain page
+            in the note, depending on what the student wants. The <b>DELETE</b> button
+            deletes pages in the note. Once the final page of the note is deleted, the
+            entire note is deleted.
+        </p>
+    </div>
+</section>
+
+<section class="feature">
+    <div class="feature-description">
+        <h3>Find Notes</h3>
+        <p>This feature allows the student to search for and find a particular note by using
+            the <b>SEARCH</b> icon found in the top left corner of the main page. This is possible
+            as long as the note that is being searched for has been created and saved on the
+            app's system.
+        </p>
+    </div>
+    <div class="feature-pictures">
+        <img src="images/Find Notes(2).png" , alt="Find Notes Image">
+    </div>
+</section>
+
+<section class="feature">
+    <div class="feature-pictures">
+        <img src="images/Favorite Notes(2).png" , alt="Favorite Notes Image">
+    </div>
+    <div class="feature-description">
+        <h3>Favourite Notes</h3>
+        <p>The student can have favourite notes that can be easily accessed through
+            the <b>&vellip;</b> button at the top right corner of the main page. A
+            note becomes a favourite note when the <b>&star;</b> button, at the bottom
+            of any page, is selected.
+        </p>
+    </div>
+</section>
+
+<section class="feature">
+    <div class="feature-description">
+        <h3>Recommended Notes</h3>
+        <p>This feauture provides the student with the notes that have not been opened
+            within seven days, that is, the system notifies the student
+            that they have not read the note in a while and it is recommended that they
+            go over it soon. Recommonded notes can be found when the <b>&vellip;</b> button,
+            at the top right corner of the main page, is clicked. There is also recommended
+            favourite notes, which are recommended notes that were added to favourites.
+        </p>
+    </div>
+    <div class="feature-pictures">
+        <img src="images/Recommended Notes(2).png" , alt="Recommended Notes Image">
+    </div>
+</section>
+</section>
+
+<!-- Development Experience section -->
+<section class="dev-exp">
+    <h2>Development Experience </h2>
+    <ul>
+        <li>
+            <div class="issue">Improvement from Iteration 2</div>
+            <p>We tried to ensure we outlined the most important tasks
+                to be completed before the end of the iteration and assigned
+                them to ourselves as early as we possibly could. We also set
+                deadlines for ourselves to ensure that we move on to the next
+                task as early as possible, so that our goals could be completed
+                on time.
+            </p>
+        </li>
+        <li>
+            <div class="issue">What we would do differently</div>
+            <p>If we had the chance to start over, we would aim to start our projects earlier
+                because, although we got most of our work done, we often found ourselves still working
+                on last minute details for the project the day before.
+            </p>
+        </li>
+        <li>
+            <div class="issue">Project change from Iteration 0</div>
+            <p>During our planning for the project, we had a lot of big ideas. We wanted to
+                have games on the software, an achievement bar, multiple learning resources,
+                like an in-built pomodero method timer or an active recall feature, but we
+                soon realised that all these would take a lot of time and that was something
+                we did not have. We had to drop a lot of features but we were able to carry-out
+                some of our vision.
+            </p>
+        </li>
+    </ul>
+</section>
+
+
+<!-- team description section -->
+<section class="team-description">
+    <h2>Team 7 - Stack Overflow</h2>
+    <ul>
+        <li>
+            <div class="team-member-name">HeeJeong Kim</div>
+            <p>Special development skill: Front-end development
+                <br>(The Caffeine supplier)
+            </p>
+        </li>
+        <li>
+            <div class="team-member-name">Dingyuan Zhang</div>
+            <p>Special development skill: Front-end development and Back-end development
+                <br>(The Organizer)
+            </p>
+        </li>
+        <li>
+            <div class="team-member-name">Hamed Esmaeilzadeh</div>
+            <p>Special development skill: Back-end development
+                <br>(The Big Brain)
+            </p>
+        </li>
+        <li>
+            <div class="team-member-name">Andrew Jonathan</div>
+            <p>Special development skill: Database management
+                <br>(The Motivator)
+            </p>
+        </li>
+        <li>
+            <div class="team-member-name">Chikamnaele Ngene</div>
+            <p>Special development skill: Database management
+                <br>(The Ninja)
+            </p>
+        </li>
+    </ul>
+</section>
+
+<!-- user review section -->
+<section class="user-reviews">
+    <h2 class="user-reviews-title">User Reviews</h2>
+
+    <div class="review">
+        <h3>Bill Gates</h3>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>Best App I have ever used!</p>
+    </div>
+
+    <div class="review">
+        <h3>Franklin</h3>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>My students did good!</p>
+    </div>
+
+    <div class="review">
+        <h3>Michael Zapp</h3>
+        <div class="stars">
+            &#9733;&#9733;
+        </div>
+        <p>It is not even ASSEMBLY!!!!</p>
+    </div>
+
+    <div class="review">
+        <h3>chatGPT</h3>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>AI approved. You're welcome!</p>
+    </div>
+
+    <div class="review">
+        <h3>Mark Zuckerberg</h3>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>robot</p>
+    </div>
+
+    <div class="review">
+        <h3>Joe Biden</h3>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>zzzzzzzzzzz</p>
+    </div>
+</section>
+
+<section id="Learn More" , class="learn-more">
+    <h2>Learn More</h2>
+    <p>
+        Study with me is a product that allows students to study and learn alone or together in the same place at
+        any time.
+        This product is to help students stay organised while studying, giving them easy access to their notes,
+        reminders,
+        flashcards, learning resources, and quiz games, while also keeping them motivated to learn more.
+        <br> The application is primarily designed for students. It will permit them to create sections for their
+        courses by
+        creating chapters and other categories to keep their notes organized. The students will be able to view,
+        edit, delete
+        notes. They would also be able to make notes as a group at the same time or different times so that they
+        would be to
+        read what they may have missed during a class. They would also be able to find specific notes.</br>
+        <br> Students would be able to get reminders for the things they are supposed to do like assignments or
+        quizzes that
+        are due, midterms that are coming up, and projects that they need to finish.They would also be able to set
+        reminders
+        for study sessions. This is to help them remember the things they have to get done before it is past the due
+        dates.
+        The students will be able to decide when they want these reminders to be sent to them and how often it would
+        be repeated.</br>
+        <br> The software would be able to suggest which of the notes, written by the student,should be read based
+        on how often
+        the student reviews it. The least-read note would be highly recommended because it would tell the student
+        that they have
+        not finished their work in that note or that they have not read it in a while and they need to finish their
+        work or go over
+        what they have learned. Their most-read notes would be least recommended as they heavily review these
+        notes.</br>
+        <br> The product will also allow students to make flashcards and play games amongst themselves. The
+        flashcards will be made
+        by the students and it would be available for use whenever they want to use it. They can also be used in a
+        game, where the
+        students can go answer the questions on the cards and be awarded with points if they get it right. This
+        allows them to challenge
+        themselves. With the flashcards,the students will also be able to review what they have learned so far.
+        Leaderboards will be created
+        to encourage them to acquire more knowledge so they can get to the top or remain at the top.</br>
+        <br> This product is designed with the idea of making learning and studying easy and fun for students. It is
+        to provide all the
+        resources that they need in one place, so that it would be manageable for them and it would make it easy for
+        them to stay up-to-date.</br>
+        <br> The product is considered successful if the average of the star rating is 3 or above out of 5, which is
+        to be determined by a survey
+        that would be conducted by 10 university students and 10 non-university students.</br>
+    </p>
+</section>
+
+<!-- footer section -->
+<footer class="footer">
+    <div class="footer-logo">
+        <img src="images/logo.png" alt="Your App Logo"> <!-- Add your logo source here -->
+        <span>STUDY WITH ME</span>
+    </div>
+    <div class="copyright-team">
+        <ul class="team-members">
+            <li>Andrew Jonathan</li>
+            <li>Chikamnaele Ngene</li>
+            <li>Dingyuan Zhang</li>
+            <li>Hamed Esmaeilzadeh</li>
+            <li>HeeJeong Kim</li>
+        </ul>
+        <p>&copy; 2023 STUDY WITH ME. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+
+</html>

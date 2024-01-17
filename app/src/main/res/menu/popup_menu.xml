@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/all_notes"
+        android:title="ALL Notes"/>
+
+    <item android:id="@+id/fav_notes"
+        android:title="Favorite Notes"/>
+
+    <item android:id="@+id/recommend_notes"
+        android:title="Recommend Notes"/>
+
+    <item android:id="@+id/recommend_fav_notes"
+        android:title="Recommend Favourite Notes"/>
+
+    <item
+        android:id="@+id/search_bar"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom|withText">
+    </item>
+
+</menu>
